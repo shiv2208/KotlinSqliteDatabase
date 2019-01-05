@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.kotlinsqlitedatabase.ui.DeleteDetailsFragment">
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp"
+              android:id="@+id/delete_id"
+              android:inputType="textCapWords"
+              android:hint="@string/user_id"
+              android:editable="false"/>
+    <EditText android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp"
+              android:id="@+id/delete_name"
+              android:inputType="textCapWords"
+              android:hint="@string/user_name"/>
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp"
+              android:id="@+id/delete_address"
+              android:inputType="text"
+              android:hint="@string/user_address"/>
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp"
+              android:id="@+id/delete_phone"
+              android:inputType="number"
+              android:hint="@string/user_mobile"/>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_btn"
+            android:padding="10dp"
+            android:text="@string/update_delete"/>
+
+</LinearLayout>

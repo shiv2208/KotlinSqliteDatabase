@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">KotlinSqliteDatabase</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="user_name">Full name</string>
+    <string name="user_address">Address</string>
+    <string name="user_mobile">i.e. 9797979797</string>
+    <string name="save">Save</string>
+    <string name="add_data">Add Details</string>
+    <string name="update_data">Updata</string>
+    <string name="update_delete">Delete</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_id">User Id</string>
+</resources>
