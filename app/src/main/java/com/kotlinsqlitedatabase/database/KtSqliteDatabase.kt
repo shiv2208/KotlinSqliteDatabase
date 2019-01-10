@@ -62,18 +62,23 @@ class KtSqliteDatabase(context: Context) : SQLiteOpenHelper(context, DATABASENAM
         return userList
     }
 
-    fun updateData(userModel: UserModel) {
+    fun updateData(userModel: UserModel): Boolean {
 
         val database: SQLiteDatabase = this.writableDatabase
         val values = ContentValues()
-
+        values.put(USERNAME, userModel.name)
+        values.put(USERADDRESS, userModel.address)
+        values.put(PHONE, userModel.phone)
+        val sucess = database.update(TABLENAME, values, ID + "=" + userModel.userID, null)
+        database.close()
+        return (Integer.parseInt("$sucess") != -1)
     }
 
     fun getSingleUserData(userNam: Int): UserModel {
 
         lateinit var userModel: UserModel
         val database: SQLiteDatabase = this.writableDatabase
-        var cursor: Cursor = database.rawQuery("Select * from $TABLENAME where $ID="+ userNam, null)
+        var cursor: Cursor = database.rawQuery("Select * from $TABLENAME where $ID=" + userNam, null)
 
         if (cursor != null && cursor.count > 0) {
             cursor.moveToNext()

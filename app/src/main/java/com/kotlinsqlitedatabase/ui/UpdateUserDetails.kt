@@ -27,7 +27,10 @@ class UpdateUserDetails : Fragment() {
     lateinit var userid: EditText
     lateinit var update: Button
     lateinit var userModel: UserModel
-    var forEmpty: ForEmpty=ForEmpty()
+    var forEmpty: ForEmpty = ForEmpty()
+    lateinit var ktSqliteDatabase: KtSqliteDatabase
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +42,7 @@ class UpdateUserDetails : Fragment() {
         userid = view.update_id
         update = view.update_btn
 
-        val ktSqliteDatabase = KtSqliteDatabase(activity!!)
+        ktSqliteDatabase = KtSqliteDatabase(activity!!)
 
         userid.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
@@ -73,12 +76,18 @@ class UpdateUserDetails : Fragment() {
 
     fun fieldValidation() {
         if (forEmpty.emptyEditText(username) && forEmpty.emptyEditText(userid)) {
-            UserModel(
+            userModel = UserModel(
                 username.text.toString(),
                 useradddress.text.toString(),
                 userphone.text.toString().toLong(),
                 userid.text.toString().toInt()
             )
+
+            var sucess = ktSqliteDatabase.updateData(userModel)
+            if (true)
+                Toast.makeText(context, "Updated", Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(context, "Fill all fields", Toast.LENGTH_SHORT).show()
         }
